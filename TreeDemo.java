@@ -54,7 +54,7 @@ class BinarySearchTree {
     }
 
     /**
-     * Performs recursive in-order traversal of the tree.
+     * Performs in-order traversal of the tree.
      * @param root Represents the root node of the tree.
      */
     public void inOrderTraversal(Node root) {
@@ -68,11 +68,17 @@ class BinarySearchTree {
     }
 
     /**
-     * 
-     * @param root
+     * Performs post-order traversal of the tree.
+     * @param root Represents the root node of the tree.
      */
     public void postOrderTraversal(Node root) {
-        // implement me
+        if (root != null) {
+            postOrderTraversal(root.left);
+            postOrderTraversal(root.right);
+
+            // print current code (root)
+            System.out.print(root.value + " ");
+        }
     }
 
     /**
@@ -158,9 +164,12 @@ public class TreeDemo {
         t1.inOrderTraversal(t1.root);
         System.out.println();
 
-        System.out.print("pre-order : ");
+        System.out.print("pre-order :   ");
         t1.preOrderTraversal(t1.root);
         System.out.println();
 
+        System.out.print("post-order :   ");
+        t1.postOrderTraversal(t1.root);
+        System.out.println();
     }
 }
