@@ -83,13 +83,22 @@ class BinarySearchTree {
 
     /**
      * Finds the node in the tree with a specific value.
-     * @param root
-     * @param key
-     * @return
+     * @param root Represents the root node of the tree.
+     * @param key Represents the specified value to search for.
+     * @return true if the key is in the tree, false it is not.
      */
     public boolean find(Node root, int key) {
-        // implement me
-        return false;
+        if (root == null) {
+            return false;
+        }
+
+        if (root.value == key) {
+            return true;
+        } else if (key < root.value) {
+            return find(root.left, key);
+        } else {
+            return find(root.right, key);
+        }
     }
 
     /**
@@ -159,7 +168,7 @@ public class TreeDemo {
         t1.root = t1.insert(t1.root, 90);
         t1.root = t1.insert(t1.root, 22);
 
-
+        // traversal method test
         System.out.print("in-order :   ");
         t1.inOrderTraversal(t1.root);
         System.out.println();
@@ -171,5 +180,9 @@ public class TreeDemo {
         System.out.print("post-order :   ");
         t1.postOrderTraversal(t1.root);
         System.out.println();
+
+        // find method test
+        System.out.println("\nIs 22 in the tree? " + t1.find(t1.root, 22));
+        System.out.println("Is 10 in the tree? " + t1.find(t1.root, 10));
     }
 }
