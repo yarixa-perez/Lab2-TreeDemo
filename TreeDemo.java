@@ -42,33 +42,33 @@ class BinarySearchTree {
 
     /**
      * Performs pre-order traversal of the tree.
-     * Root node is visited first, then left and right subtrees
-     * are traversed recursively.
      * @param root Represents the root node of the tree.
      */
     public void preOrderTraversal(Node root) {
         if (root != null) {
-            // current node (root)
+            // print current node (root)
             System.out.print(root.value + " ");
-
-            // left subtree
             preOrderTraversal(root.left);
-
-            // right subtree
             preOrderTraversal(root.right);
         }
     }
 
     /**
-     *
-     * @param root
+     * Performs recursive in-order traversal of the tree.
+     * @param root Represents the root node of the tree.
      */
     public void inOrderTraversal(Node root) {
-        // implement me
+        if (root != null) {
+            inOrderTraversal(root.left);
+
+            // print current node (root)
+            System.out.print(root.value + " ");
+            inOrderTraversal(root.right);
+        }
     }
 
     /**
-     *
+     * 
      * @param root
      */
     public void postOrderTraversal(Node root) {
@@ -153,12 +153,10 @@ public class TreeDemo {
         t1.root = t1.insert(t1.root, 90);
         t1.root = t1.insert(t1.root, 22);
 
-        /*
+
         System.out.print("in-order :   ");
         t1.inOrderTraversal(t1.root);
         System.out.println();
-
-         */
 
         System.out.print("pre-order : ");
         t1.preOrderTraversal(t1.root);
