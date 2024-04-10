@@ -121,12 +121,20 @@ class BinarySearchTree {
 
     /**
      * Finds the node in the tree with the largest key.
-     * @param root
-     * @return
+     * @param root Represents the root node of the tree.
+     * @return The largest key in the tree.
      */
     public int getMax(Node root) {
-        // implement me
-        return -1;
+        if (root == null) {
+            throw new IllegalArgumentException("The tree is empty.");
+        }
+
+        Node current = root;
+        while (current.right != null) {
+            current = current.right;
+        }
+
+        return current.value;
     }
 
     /**
@@ -194,6 +202,9 @@ public class TreeDemo {
         System.out.println("Is 10 in the tree? " + t1.find(t1.root, 10));
 
         // getMin method test
-        System.out.println("\nMin value in tree: " + t1.getMin(t1.root));
+        System.out.println("\nMin value in the tree: " + t1.getMin(t1.root));
+
+        // getMax method test
+        System.out.println("Max value in the tree: " + t1.getMax(t1.root));
     }
 }
