@@ -198,13 +198,22 @@ public class TreeDemo {
         System.out.println();
 
         // find method test
-        System.out.println("\nIs 22 in the tree? " + t1.find(t1.root, 22));
-        System.out.println("Is 10 in the tree? " + t1.find(t1.root, 10));
+        System.out.println("\nIs 22 in the tree?   " + t1.find(t1.root, 22));
+        System.out.println("Is 10 in the tree?   " + t1.find(t1.root, 10));
 
         // getMin method test
-        System.out.println("\nMin value in the tree: " + t1.getMin(t1.root));
+        System.out.println("\nMin value in the tree:   " + t1.getMin(t1.root));
 
         // getMax method test
-        System.out.println("Max value in the tree: " + t1.getMax(t1.root));
+        System.out.println("Max value in the tree:   " + t1.getMax(t1.root));
+        System.out.println();
+
+        // delete method test
+        System.out.print("in-order before deletion :   ");
+        t1.inOrderTraversal(t1.root);
+        t1.delete(t1.root, 22);
+        System.out.print("\nin-order after deletion :   ");
+        t1.inOrderTraversal(t1.root);
+        System.out.println();
     }
 }
